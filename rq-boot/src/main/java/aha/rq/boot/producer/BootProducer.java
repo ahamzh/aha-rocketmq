@@ -74,6 +74,11 @@ public class BootProducer {
     }
 
     @PostConstruct
+    public void sendDelay(){
+        rocketMQTemplate.syncSend("aha_delay_topic",MessageBuilder.withPayload("延迟消息").build(),60*1000,1);
+    }
+
+    @PostConstruct
     public void sendTransaction() {
         AtomicInteger checkTimes = new AtomicInteger(0);
 
