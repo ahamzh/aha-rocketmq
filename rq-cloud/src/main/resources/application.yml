@@ -4,12 +4,12 @@ spring:
     stream:
       # Binding 配置项，对应 BindingProperties Map
       bindings:
-        aha-demo-input:
-          destination: aha_cloud_topic_01 # 目的地。这里使用 RocketMQ Topic
+        halo-demo-input:
+          destination: halo_cloud_topic_01 # 目的地。这里使用 RocketMQ Topic
           content-type: application/json # 内容格式。这里使用 JSON
-          group: aha_cloud_consumer_group # 消费者分组
-        aha-demo-output:
-          destination: aha_cloud_topic_01 # 目的地。这里使用 RocketMQ Topic
+          group: halo_cloud_consumer_group # 消费者分组
+        halo-demo-output:
+          destination: halo_cloud_topic_01 # 目的地。这里使用 RocketMQ Topic
           content-type: application/json # 内容格式。这里使用 JSON
       # Spring Cloud Stream RocketMQ 配置项
       rocketmq:
@@ -18,12 +18,12 @@ spring:
           name-server: 192.168.189.133:9876 # RocketMQ Namesrv 地址
         # RocketMQ 自定义 Binding 配置项，对应 RocketMQBindingProperties Map
         bindings:
-          aha-demo-output:
+          halo-demo-output:
             # RocketMQ Producer 配置项，对应 RocketMQProducerProperties 类
             producer:
-              group: aha_cloud_producer_group # 生产者分组
+              group: halo_cloud_producer_group # 生产者分组
               sync: true # 是否同步发送消息，默认为 false 异步。
-          aha-demo-input:
+          halo-demo-input:
             # RocketMQ Consumer 配置项，对应 RocketMQConsumerProperties 类
             consumer:
               enabled: true # 是否开启消费，默认为 true
